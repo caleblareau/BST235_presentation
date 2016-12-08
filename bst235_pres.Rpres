@@ -28,36 +28,83 @@
 
 
 
-TITLE TITLE
+Assessing sparsity through a simulation study
 ========================================================
 autosize: true  
 transition-speed: slow
 <br><br>
-Kevin Cummiskey, Caleb Lareau, Matt Ploenzke<br>
+Kevin Cummiskey, Caleb Lareau, Matthew Ploenzke<br>
 BST235-- Advanced Regression and Statistical Learning
 
 <div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:80%;font-weight:bold;">https://bit.ly/KCMbst235</a><br>December 12, 2016</SPAN></div>
 
-Overview
+Introduction
 ========================================================
 <br>
-- Statement of Problem
-- Matrix memory allocation
-- File formats
-  - Competing Solutions
-- Implementation
-  - Early results
-- Outlook
-
-
-Statement of Problem
+- statement of research questions
+  - how is prediction affected when the true data-generating model is linear/non-linear
+  - models imply different types of sparsity
+      - square-loss models are regularized to yield sparsity in coefficients
+      - hinge-loss models are regularized to yield sparsity in observations
+  - group sparsity under varying correlation and signal
+  - regularized point estimates are biased. can we estimate the true effect
+  
+Model Definitions
 ========================================================
 <br>
-- Need file format to handle LARGE single cell data
-  - Fast
-  - Scalable
-- Computational infrastructure to handle basic analyses
-  - Minimum number of cells to do X (PCA, tSNE, etc.)
+- Write model formulas here - kevin
+
+Model comparison
+========================================================
+<br>
+- regularized mse plot - matt
+
+Model comparison
+========================================================
+<br>
+- mse prediction plot here  - matt
+
+Model comparison
+========================================================
+<br>
+- params table - matt
+
+SVM sparsity
+========================================================
+<br>
+- PC plot with SVs highlighted 1 - matt
+
+SVM sparsity
+========================================================
+<br>
+- PC plot with SVs highlighted 2 - matt
+
+SVM sparsity
+========================================================
+<br>
+- PC plot with SVs highlighted 3 - matt
+
+Predictor sparsity
+========================================================
+<br>
+- heatmap under lasso vs group lasso varying effect size - caleb
+
+Predictor sparsity
+========================================================
+<br>
+- heatmap under lasso vs group lasso varying correlation - caleb
+
+Point estimate bias
+========================================================
+<br>
+- bootstrap confidence intervals table - kevin
+
+Conclusion
+========================================================
+<br>
+
+Thanks!
+======================================================== 
 
 Matrices
 ========================================================
@@ -67,7 +114,3 @@ Matrices
 <DIV ALIGN=CENTER>
 <img src="images/sd.png" width="100%" height="100%" />
 </DIV>
-
-
-Thanks!
-======================================================== 
