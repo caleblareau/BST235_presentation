@@ -53,21 +53,35 @@ Plan
 - Consider gene sets with varying levels of correlation
 - Consider gene sets with varying levels of effect size
 
-Square-loss with L1 penalty
+
+Models
 ========================================================
 <br>
-- Write model formulas here
-- how do we do latex in this?
+- LASSO
+$$\hat{\beta}_{lasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left|\beta_j\right| \right\}$$
+- Adaptive LASSO
+$$\hat{\beta}_{Alasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} w_j\left|\beta_j\right| \right\} \qquad w_j = \left|1/\hat{\beta}_j\right|^v$$
+- Support Vector Machine
+$$\hat{\beta}_{svm} = \min_\beta \left\{ \sum_{i=1}^N \left[1-y_i f(x_i) \right]_+ + \frac{\lambda}{2}\left|\left|\beta\right|\right| \right\}$$
 
-- Square-loss models with L1 regularization yield sparsity in coefficients
-
-Hinge-loss with L1 penalty
+Models - Key Properties
 ========================================================
 <br>
-- Write svm formulas here
-- Hinge-loss models with L1 regularization yield sparsity in observations
+- LASSO
+  - estimates not asymptotically normal
+  - biased estimates for large parameters
+  - bootstrap fails
 
-
+- Adaptive LASSO
+  - estimates asymptically normal
+  - less bias for large parameter estimates
+  - oracle property 
+ 
+***
+- Support Vector Machine
+  - constructs optimal hyperplanes in transformed spaces
+  - boundary determined by points near boundary (support vectors)
+  
 Gene set correlation
 ========================================================
 <br>
