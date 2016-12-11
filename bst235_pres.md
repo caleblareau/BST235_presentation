@@ -45,13 +45,14 @@ Goal
       - Sparse coefficients versus sparse support vectors
       - Point estimate bias
       - Assess Prediction 
-<br>
+<br><br>
+
 Plan
 - Consider various regularized linear and nonlinear models 
       - Lasso, Adaptive Lasso, SVM
 - Consider both a linear and nonlinear underlying data-generating mechanism 
-- Consider gene sets with varying levels of correlation
-- Consider gene sets with varying levels of effect size
+- Simulate gene sets with varying levels of correlation, fixed effect size
+- Simulate gene sets with varying levels of effect size, fixed correlation
 
 
 Models
@@ -59,6 +60,8 @@ Models
 <br>
 - LASSO
 $$\hat{\beta}_{lasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left|\beta_j\right| \right\}$$
+- Group LASSO
+$$\hat{\beta}_{group} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left| \left|\beta_j\right|\right|_{G_j} \right\}$$
 - Adaptive LASSO
 $$\hat{\beta}_{Alasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} w_j\left|\beta_j\right| \right\} \qquad w_j = \left|1/\hat{\beta}_j\right|^v$$
 - Support Vector Machine
@@ -66,18 +69,26 @@ $$\hat{\beta}_{svm} = \min_\beta \left\{ \sum_{i=1}^N \left[1-y_i f(x_i) \right]
 
 Models - Key Properties
 ========================================================
-<br>
+<br><br>
 - LASSO
   - estimates not asymptotically normal
   - biased estimates for large parameters
   - bootstrap fails
+<br><br>
 
 - Adaptive LASSO
   - estimates asymptically normal
-  - less bias for large parameter estimates
+  - decreasing bias for increasing parameter estimates
   - oracle property 
  
 ***
+<br>
+<br>
+- Group LASSO
+  - estimates not asymptotically normal, biased
+  - adds L1-L2 penalty to impose grouping
+<br><br><br>
+
 - Support Vector Machine
   - constructs optimal hyperplanes in transformed spaces
   - boundary determined by points near boundary (support vectors)
@@ -100,124 +111,187 @@ Predictor sparsity
 <br>
 - heatmap under lasso vs group lasso varying correlation - caleb
 
-Lasso - No interaction effects
+Lasso
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/L1small.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/L1small.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/L1small.png" width="80%" height="80%" />
+<img src="images/nonlin/L1small.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/L1big.png" width="80%" height="80%" />
+<img src="images/nonlin/L1big.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>Nonlinear Model Specification</figcaption></DIV>
 </DIV>
 
-Lasso - Interaction effects
+Adaptive Lasso
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/L1big.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/L1big.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/ALsmall.png" width="80%" height="80%" />
+<img src="images/nonlin/ALsmall.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/ALbig.png" width="80%" height="80%" />
+<img src="images/nonlin/ALbig.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>Nonlinear Model Specification</figcaption></DIV>
 </DIV>
 
-Adaptive Lasso - No interaction effects
+Group Lasso - Linear Model Specification
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/ALsmall.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/ALsmall.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
-</DIV>
+<br><br>
 
-Adaptive Lasso - Interaction effects
-========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/ALbig.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/ALbig.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<DIV ALIGN=LEFT>
+<img src="images/lin/grpLasso_coeffs.png" width="80%" height="80%" />
+<img src="images/lin/grpLasso_error.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
+***
+<br><br>
 
-Group Lasso - no interaction effects
-========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/grpLasso_coeffs.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/lin/grpLasso_error.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/grpLasso_coeffs.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
-<img src="images/nonlin/grpLasso_error.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/grpLasso_coeffs.png" width="80%" height="80%" />
+<img src="images/nonlin/grpLasso_error.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM linear kernel
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/svmLin.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/svmLin.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/svmLin.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/svmLin.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM Quadratic kernel
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/svmQuad.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/svmQuad.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/svmQuad.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/svmQuad.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+</DIV>
+
 SVM Gaussian kernel
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/svmRBF.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/svmRBF.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/svmRBF.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/svmRBF.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+</DIV>
+
 
 Importance of parameter tuning
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/ErrorPlot_offset.png" width="50%" height="50%" />
-<figcaption>Offset=1000</figcaption>
-<img src="images/lin/ErrorPlot.png" width="50%" height="50%" />
-<figcaption>Offset=0</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Offset=1000</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/ErrorPlot.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>Offset=0</figcaption></DIV>
 </DIV>
 
 Model comparison
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/ErrorPlot_offset.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/ErrorPlot.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/ErrorPlot.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM sparsity - Linear kernel
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/PCplot_model5.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/PCplot_model5.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/PCplot_model5.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/PCplot_model5.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM sparsity - Quadratic kernel
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/PCplot_model6.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/PCplot_model6.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/PCplot_model6.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/PCplot_model6.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM sparsity - Gaussian kernel
 ========================================================
-<DIV ALIGN=CENTER>
-<img src="images/lin/PCplot_model7.png" width="50%" height="50%" />
-<figcaption>Linear</figcaption>
-<img src="images/nonlin/PCplot_model7.png" width="50%" height="50%" />
-<figcaption>Nonlinear</figcaption>
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/lin/PCplot_model7.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=LEFT>
+<img src="images/nonlin/PCplot_model7.png" width="80%" height="80%" />
+<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 Point estimate bias
@@ -234,6 +308,15 @@ Conclusion
 - Lasso point estimates are biased and Adaptive lasso resolves this for large effect sizes
 - The data generating mechanism is important for model specification
 
-Thanks!
-======================================================== 
+Citations
+========================================================
+<br>
+[1] Chatterjee, A., and S. N. Lahiri. "Rates of convergence of the adaptive LASSO estimators to the oracle distribution and higher order refinements by the bootstrap." The Annals of Statistics 41.3 (2013): 1232-1259.
 
+[2] Cortes, Corinna, and Vladimir Vapnik. "Support-vector networks." Machine learning 20.3 (1995): 273-297.
+
+[3] Tibshirani, Robert. "Regression shrinkage and selection via the lasso." Journal of the Royal Statistical Society. Series B (Methodological) (1996): 267-288.
+
+[4] Yuan, Ming, and Yi Lin. "Model selection and estimation in regression with grouped variables." Journal of the Royal Statistical Society: Series B (Statistical Methodology) 68.1 (2006): 49-67.
+
+[5] Zou, Hui. "The adaptive lasso and its oracle properties." Journal of the American statistical association 101.476 (2006): 1418-1429.
