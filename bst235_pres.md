@@ -113,34 +113,75 @@ Predictor sparsity
 <br>
 - heatmap under lasso vs group lasso varying correlation - caleb
 
-Lasso
+Lasso - Linear Data Generation
 ========================================================
-<br>
+<br><br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/L1small.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/L1big.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
+</DIV>
+
+Lasso - Non-Linear Data Generation
+========================================================
+<br><br><br>
+
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/L1small.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
 </DIV>
 ***
-<br>
+<br><br><br>
 
-<DIV ALIGN=LEFT>
-<img src="images/lin/L1big.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/L1big.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>Nonlinear Model Specification</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
 </DIV>
 
-Adaptive Lasso
-========================================================
 
-<br>
-<img src="bst235_pres-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="1080px" style="display: block; margin: auto;" />
+Adaptive Lasso - Linear Data Generation
+========================================================
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ALsmall.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ALbig.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
+</DIV>
+
+Adaptive Lasso - Non-Linear Data Generation
+========================================================
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/ALsmall.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/ALbig.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
+</DIV>
 
 Group Lasso - Linear Model Specification 
 ========================================================
 <br>
-<img src="bst235_pres-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="1080px" style="display: block; margin: auto;" />
+<img src="bst235_pres-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="1080px" style="display: block; margin: auto;" />
 
 SVM linear kernel
 ========================================================

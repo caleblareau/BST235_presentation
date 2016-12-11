@@ -113,38 +113,70 @@ Predictor sparsity
 <br>
 - heatmap under lasso vs group lasso varying correlation - caleb
 
-Lasso
+Lasso - Linear Data Generation
 ========================================================
-<br>
+<br><br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/L1small.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/L1big.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
+</DIV>
+
+Lasso - Non-Linear Data Generation
+========================================================
+<br><br><br>
+
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/L1small.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
 </DIV>
 ***
-<br>
+<br><br><br>
 
-<DIV ALIGN=LEFT>
-<img src="images/lin/L1big.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/L1big.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>Nonlinear Model Specification</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
 </DIV>
 
-Adaptive Lasso
-========================================================
 
-<br>
-```{r, echo=FALSE,out.width="1080px",height="1080px", fig.align = "center", dpi=300}
-library(png)
-library(grid)
-library(gridExtra)
-img1 <-  rasterGrob(as.raster(readPNG("images/lin/ALsmall.png")), interpolate = FALSE)
-img2 <-  rasterGrob(as.raster(readPNG("images/nonlin/ALsmall.png")), interpolate = FALSE)
-img3 <-  rasterGrob(as.raster(readPNG("images/lin/ALbig.png")), interpolate = FALSE)
-img4 <-  rasterGrob(as.raster(readPNG("images/nonlin/ALbig.png")), interpolate = FALSE)
-grid.arrange(img1,img2,img3,img4, ncol = 2, left = "Hey")
-```
+Adaptive Lasso - Linear Data Generation
+========================================================
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ALsmall.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ALbig.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
+</DIV>
+
+Adaptive Lasso - Non-Linear Data Generation
+========================================================
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/ALsmall.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
+</DIV>
+***
+<br><br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/ALbig.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
+</DIV>
 
 Group Lasso - Linear Model Specification 
 ========================================================
@@ -157,7 +189,7 @@ img1 <-  rasterGrob(as.raster(readPNG("images/lin/grpLasso_coeffs.png")), interp
 img2 <-  rasterGrob(as.raster(readPNG("images/lin/grpLasso_error.png")), interpolate = FALSE)
 img3 <-  rasterGrob(as.raster(readPNG("images/nonlin/grpLasso_coeffs.png")), interpolate = FALSE)
 img4 <-  rasterGrob(as.raster(readPNG("images/nonlin/grpLasso_error.png")), interpolate = FALSE)
-grid.arrange(img1,img2,img3,img4, ncol = 2, left = "Hey")
+grid.arrange(img1,img2,img3,img4, ncol = 2, bottom = "Linear                                                          Non-Linear")
 ```
 
 SVM linear kernel
