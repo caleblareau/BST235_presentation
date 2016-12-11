@@ -36,7 +36,7 @@ height: 1080
 Kevin Cummiskey, Caleb Lareau, Matthew Ploenzke<br>
 BST235-- Advanced Regression and Statistical Learning
 
-<div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:80%;font-weight:bold;">https://bit.ly/KCMbst235</a><br>December 12, 2016</SPAN></div>
+<div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:80%;font-weight:bold;">bit.ly/KCMbst235</a><br>December 12, 2016</SPAN></div>
 
 Overview
 ========================================================
@@ -53,65 +53,36 @@ Overview
 - Simulate gene sets with varying levels of correlation/effect sizes
 
 
-Models
+ 
 ========================================================
-<br>
-- LASSO <br>
-$$\hat{\beta}_{lasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left|\beta_j\right| \right\}$$ <br><br>
-- Group LASSO
-$$\scriptsize \hat{\beta}_{group} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left| \left|\beta_j\right|\right|_{G_j} \right\}$$
-
-Models
-========================================================
-<br>
-- Adaptive LASSO
-$$\scriptsize \hat{\beta}_{Alasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} w_j\left|\beta_j\right| \right\} \qquad w_j = \left|1/\hat{\beta}_j\right|^v$$<br><br>
-- Support Vector Machine
-$$\scriptsize \hat{\beta}_{svm} = \min_\beta \left\{ \sum_{i=1}^N \left[1-y_i f(x_i) \right]_+ + \frac{\lambda}{2}\left|\left|\beta\right|\right| \right\}$$
-
-Models - Key Properties
-========================================================
-<br>
-- LASSO
+LASSO <br>
   - estimates not asymptotically normal
   - biased estimates for large parameters
-  - bootstrap fails
-<br><br>
+  - bootstrap fails <br><br>
+$$\hat{\beta}_{lasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left|\beta_j\right| \right\}$$ <br><br>
 
-- Adaptive LASSO
+  
+Group LASSO <br>
+  - estimates not asymptotically normal, biased
+  - adds L1-L2 penalty to impose grouping <br><br>
+$$\scriptsize \hat{\beta}_{group} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left| \left|\beta_j\right|\right|_{G_j} \right\}$$<br><br>
+
+  
+ 
+========================================================
+Adaptive LASSO
   - estimates asymptically normal
   - decreasing bias for increasing parameter estimates
-  - oracle property 
- 
-Models - Key Properties
-========================================================
-<br>
-- Group LASSO
-  - estimates not asymptotically normal, biased
-  - adds L1-L2 penalty to impose grouping
-<br><br><br>
+  - oracle property <br><br>
+$$\scriptsize \hat{\beta}_{Alasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} w_j\left|\beta_j\right| \right\} \qquad w_j = \left|1/\hat{\beta}_j\right|^v$$<br><br>
 
-- Support Vector Machine
+Support Vector Machine
   - constructs optimal hyperplanes in transformed spaces
-  - boundary determined by points near boundary (support vectors)
-  
-Gene set correlation
-========================================================
-<br>
-- Caleb could on the fly simulate this and demonstrate the app
-- N=500, p = 5 "super-gene" sets of 5 genes defined with correlation structure...
-- discuss linear vs nonlinear data generating mechanism
+  - boundary determined by points near boundary (support vectors)<br><br>
+$$\scriptsize \hat{\beta}_{svm} = \min_\beta \left\{ \sum_{i=1}^N \left[1-y_i f(x_i) \right]_+ + \frac{\lambda}{2}\left|\left|\beta\right|\right| \right\}$$
 
-Predictor sparsity
+Interactive Demo
 ========================================================
-<br>
-- heatmap under lasso vs group lasso varying effect size - caleb
-- again could be done outside the presentation to take up time
-
-Predictor sparsity
-========================================================
-<br>
-- heatmap under lasso vs group lasso varying correlation - caleb
 
 Lasso - Linear Data Generation
 ========================================================
@@ -142,39 +113,6 @@ Lasso - Non-Linear Data Generation
 
 <DIV ALIGN=CENTER>
 <img src="images/nonlin/L1big.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
-</DIV>
-
-
-Adaptive Lasso - Linear Data Generation
-========================================================
-<br><br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/ALsmall.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
-</DIV>
-***
-<br><br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/ALbig.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
-</DIV>
-
-Adaptive Lasso - Non-Linear Data Generation
-========================================================
-<br><br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/nonlin/ALsmall.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
-</DIV>
-***
-<br><br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/nonlin/ALbig.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>Nonlinear Model Specification</figcaption></DIV>
 </DIV>
 
@@ -231,39 +169,6 @@ SVM Gaussian kernel
 <DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
-
-Importance of parameter tuning
-========================================================
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Offset=1000</figcaption></DIV>
-</DIV>
-***
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/ErrorPlot.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Offset=0</figcaption></DIV>
-</DIV>
-
-Model comparison
-========================================================
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
-</DIV>
-***
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/nonlin/ErrorPlot.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
-</DIV>
-
 SVM sparsity - Linear kernel
 ========================================================
 <br><br>
@@ -312,6 +217,38 @@ SVM sparsity - Gaussian kernel
 <DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
+Importance of parameter tuning
+========================================================
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Offset=1000</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ErrorPlot.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>Offset=0</figcaption></DIV>
+</DIV>
+
+Model comparison
+========================================================
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/ErrorPlot.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+</DIV>
+
 Bootstrap No Correlation
 ========================================================
 <br>
@@ -325,6 +262,7 @@ Bootstrap Correlated Predictors
 <DIV ALIGN=CENTER>
 <img src="images/kev/bootstrapTable2.png" width="80%" height="80%" />
 </DIV>
+- Bootstrap fails with LASSO
 
 Conclusion
 ========================================================
@@ -333,7 +271,10 @@ Conclusion
 - L2 loss + L1 regularization = sparse coefficients
 - Hinge loss + L1 regularization = sparse support vectors
 - Lasso point estimates are biased and Adaptive lasso resolves this for large effect sizes
-- The data generating mechanism is important for model specification
+
+<br><br>
+- Underlying data and choice of model is vital for accurate statistical inferences
+  - We've created an interactive platform to build intuition
 
 Citations
 ========================================================
@@ -347,3 +288,6 @@ Citations
 [4] Yuan, Ming, and Yi Lin. "Model selection and estimation in regression with grouped variables." Journal of the Royal Statistical Society: Series B (Statistical Methodology) 68.1 (2006): 49-67.
 
 [5] Zou, Hui. "The adaptive lasso and its oracle properties." Journal of the American statistical association 101.476 (2006): 1418-1429.
+
+Thanks
+========================================================
