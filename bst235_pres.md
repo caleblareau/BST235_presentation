@@ -24,52 +24,54 @@
   word-wrap: normal;
   -moz-hyphens: none;
 }
+
 </style>
 
 Assessing sparsity through a simulation study
 ========================================================
-autosize: true  
 transition-speed: slow
+width: 1920
+height: 1080
 <br><br>
 Kevin Cummiskey, Caleb Lareau, Matthew Ploenzke<br>
 BST235-- Advanced Regression and Statistical Learning
 
 <div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:80%;font-weight:bold;">https://bit.ly/KCMbst235</a><br>December 12, 2016</SPAN></div>
 
-Introduction
+Overview
 ========================================================
 <br>
-Goal
 - Investigate sparsity through simulated gene sets
       - Group sparsity and correlation
       - Sparse coefficients versus sparse support vectors
       - Point estimate bias
       - Assess Prediction 
-<br><br>
-
-Plan
+      <br><br><br>
 - Consider various regularized linear and nonlinear models 
       - Lasso, Adaptive Lasso, SVM
 - Consider both a linear and nonlinear underlying data-generating mechanism 
-- Simulate gene sets with varying levels of correlation, fixed effect size
-- Simulate gene sets with varying levels of effect size, fixed correlation
+- Simulate gene sets with varying levels of correlation/effect sizes
 
 
 Models
 ========================================================
 <br>
-- LASSO
-$$\hat{\beta}_{lasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left|\beta_j\right| \right\}$$
+- LASSO <br>
+$$\hat{\beta}_{lasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left|\beta_j\right| \right\}$$ <br><br>
 - Group LASSO
-$$\hat{\beta}_{group} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left| \left|\beta_j\right|\right|_{G_j} \right\}$$
+$$\scriptsize \hat{\beta}_{group} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} \left| \left|\beta_j\right|\right|_{G_j} \right\}$$
+
+Models
+========================================================
+<br>
 - Adaptive LASSO
-$$\hat{\beta}_{Alasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} w_j\left|\beta_j\right| \right\} \qquad w_j = \left|1/\hat{\beta}_j\right|^v$$
+$$\scriptsize \hat{\beta}_{Alasso} = \min_\beta \left\{ \left|\left|Y - X\beta\right|\right|^2 + \lambda \sum_{j = 1}^{p} w_j\left|\beta_j\right| \right\} \qquad w_j = \left|1/\hat{\beta}_j\right|^v$$<br><br>
 - Support Vector Machine
-$$\hat{\beta}_{svm} = \min_\beta \left\{ \sum_{i=1}^N \left[1-y_i f(x_i) \right]_+ + \frac{\lambda}{2}\left|\left|\beta\right|\right| \right\}$$
+$$\scriptsize \hat{\beta}_{svm} = \min_\beta \left\{ \sum_{i=1}^N \left[1-y_i f(x_i) \right]_+ + \frac{\lambda}{2}\left|\left|\beta\right|\right| \right\}$$
 
 Models - Key Properties
 ========================================================
-<br><br>
+<br>
 - LASSO
   - estimates not asymptotically normal
   - biased estimates for large parameters
@@ -81,8 +83,8 @@ Models - Key Properties
   - decreasing bias for increasing parameter estimates
   - oracle property 
  
-***
-<br>
+Models - Key Properties
+========================================================
 <br>
 - Group LASSO
   - estimates not asymptotically normal, biased
@@ -113,7 +115,7 @@ Predictor sparsity
 
 Lasso
 ========================================================
-<br><br>
+<br>
 
 <DIV ALIGN=LEFT>
 <img src="images/lin/L1small.png" width="80%" height="80%" />
@@ -121,7 +123,7 @@ Lasso
 <DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
 </DIV>
 ***
-<br><br>
+<br>
 
 <DIV ALIGN=LEFT>
 <img src="images/lin/L1big.png" width="80%" height="80%" />
@@ -131,86 +133,61 @@ Lasso
 
 Adaptive Lasso
 ========================================================
-<br><br>
 
-<DIV ALIGN=LEFT>
-<img src="images/lin/ALsmall.png" width="80%" height="80%" />
-<img src="images/nonlin/ALsmall.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>Linear Model Specification</figcaption></DIV>
-</DIV>
-***
-<br><br>
+<br>
+<img src="bst235_pres-figure/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="1080px" style="display: block; margin: auto;" />
 
-<DIV ALIGN=LEFT>
-<img src="images/lin/ALbig.png" width="80%" height="80%" />
-<img src="images/nonlin/ALbig.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>Nonlinear Model Specification</figcaption></DIV>
-</DIV>
-
-Group Lasso - Linear Model Specification
+Group Lasso - Linear Model Specification 
 ========================================================
-<br><br>
-
-<DIV ALIGN=LEFT>
-<img src="images/lin/grpLasso_coeffs.png" width="80%" height="80%" />
-<img src="images/lin/grpLasso_error.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
-</DIV>
-***
-<br><br>
-
-<DIV ALIGN=LEFT>
-<img src="images/nonlin/grpLasso_coeffs.png" width="80%" height="80%" />
-<img src="images/nonlin/grpLasso_error.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
-</DIV>
+<br>
+<img src="bst235_pres-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="1080px" style="display: block; margin: auto;" />
 
 SVM linear kernel
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/svmLin.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/svmLin.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM Quadratic kernel
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/svmQuad.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/svmQuad.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM Gaussian kernel
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/svmRBF.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/svmRBF.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 
@@ -218,86 +195,95 @@ Importance of parameter tuning
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>Offset=1000</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/ErrorPlot.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>Offset=0</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>Offset=0</figcaption></DIV>
 </DIV>
 
 Model comparison
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/ErrorPlot_offset.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/ErrorPlot.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM sparsity - Linear kernel
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/PCplot_model5.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/PCplot_model5.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM sparsity - Quadratic kernel
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/PCplot_model6.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/PCplot_model6.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
 SVM sparsity - Gaussian kernel
 ========================================================
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/lin/PCplot_model7.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
 </DIV>
 ***
 <br><br>
 
-<DIV ALIGN=LEFT>
+<DIV ALIGN=CENTER>
 <img src="images/nonlin/PCplot_model7.png" width="80%" height="80%" />
-<DIV ALIGN=LEFT><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
-Point estimate bias
+Bootstrap No Correlation
 ========================================================
 <br>
-- bootstrap confidence intervals table - kevin
+<DIV ALIGN=CENTER>
+<img src="images/kev/bootstrapTable1.png" width="80%" height="80%" />
+</DIV>
+
+Bootstrap Correlated Predictors
+========================================================
+<br>
+<DIV ALIGN=CENTER>
+<img src="images/kev/bootstrapTable2.png" width="80%" height="80%" />
+</DIV>
 
 Conclusion
 ========================================================
