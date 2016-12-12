@@ -137,38 +137,6 @@ SVM linear kernel
 <DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
-SVM Quadratic kernel
-========================================================
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/svmQuad.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
-</DIV>
-***
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/nonlin/svmQuad.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
-</DIV>
-
-SVM Gaussian kernel
-========================================================
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/lin/svmRBF.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
-</DIV>
-***
-<br><br>
-
-<DIV ALIGN=CENTER>
-<img src="images/nonlin/svmRBF.png" width="80%" height="80%" />
-<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
-</DIV>
-
 SVM sparsity - Linear kernel
 ========================================================
 <br><br>
@@ -185,6 +153,23 @@ SVM sparsity - Linear kernel
 <DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
+
+SVM Quadratic kernel
+========================================================
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/svmQuad.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/svmQuad.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+</DIV>
+
 SVM sparsity - Quadratic kernel
 ========================================================
 <br><br>
@@ -198,6 +183,22 @@ SVM sparsity - Quadratic kernel
 
 <DIV ALIGN=CENTER>
 <img src="images/nonlin/PCplot_model6.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
+</DIV>
+
+SVM Gaussian kernel
+========================================================
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/lin/svmRBF.png" width="80%" height="80%" />
+<DIV ALIGN=CENTER><figcaption>(Linear Data Simulation)</figcaption></DIV>
+</DIV>
+***
+<br><br>
+
+<DIV ALIGN=CENTER>
+<img src="images/nonlin/svmRBF.png" width="80%" height="80%" />
 <DIV ALIGN=CENTER><figcaption>(Nonlinear Data Simulation)</figcaption></DIV>
 </DIV>
 
