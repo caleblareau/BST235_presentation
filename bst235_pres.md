@@ -253,14 +253,14 @@ Bootstrap No Correlation
 ========================================================
 <br>
 <DIV ALIGN=CENTER>
-<img src="images/kev/bootstrapTable1.png" width="80%" height="80%" />
+<img src="images/kev/bootstrapTable1new.png" width="80%" height="80%" />
 </DIV>
 
 Bootstrap Correlated Predictors
 ========================================================
 <br>
 <DIV ALIGN=CENTER>
-<img src="images/kev/bootstrapTable2.png" width="80%" height="80%" />
+<img src="images/kev/bootstrapTable2new.png" width="80%" height="80%" />
 </DIV>
 - Bootstrap fails with LASSO
 
